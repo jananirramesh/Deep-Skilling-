@@ -1,9 +1,8 @@
-// Product interface
+
 interface Payment {
     void pay(double amount);
 }
 
-// Concrete Products
 class CreditCardPayment implements Payment {
     public void pay(double amount) {
         System.out.println("Paid ₹" + amount + " using Credit Card.");
@@ -22,12 +21,10 @@ class UpiPayment implements Payment {
     }
 }
 
-// Factory (Creator)
 abstract class PaymentFactory {
     public abstract Payment createPayment();
 }
 
-// Concrete Factories
 class CreditCardPaymentFactory extends PaymentFactory {
     public Payment createPayment() {
         return new CreditCardPayment();
