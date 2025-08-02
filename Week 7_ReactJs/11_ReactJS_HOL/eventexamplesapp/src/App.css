@@ -1,0 +1,32 @@
+.App {
+  margin: 20px;
+}
+
+.count{
+  margin-left: 50px;
+}
+
+.Button {
+  width: 100px;
+  padding: 5px;
+  margin-left: 10px;
+}
+
+.form-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.form-label {
+  min-width: 80px;
+  padding-top: 6px;
+}
+
+.button-row {
+  display: flex;
+  margin-left: 180px;
+  margin-top: 20px;
+}
+
