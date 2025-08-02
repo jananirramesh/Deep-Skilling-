@@ -1,0 +1,45 @@
+.main {
+  padding: 30px;
+  font-family: sans-serif;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.box1 {
+  width: 30%;
+  padding-left: 10px;
+}
+
+.box2 {
+  width: 30%;
+  padding-left: 15px;
+  border-left: 4px solid green;
+}
+
+.box3 {
+  width: 30%;
+  padding-left: 15px;
+  border-left: 4px solid green;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+b {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+  display: block;
+}
+
+p {
+  margin: 4px 0;
+}
