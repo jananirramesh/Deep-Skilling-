@@ -1,0 +1,49 @@
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git add README.md hello.xml.orig
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git commit -m "Add README and backup file"
+[master 40198c2] Add README and backup file
+ 2 files changed, 6 insertions(+)
+ create mode 100644 README.md
+ create mode 100644 hello.xml.orig
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git branch -a
+* master
+  remotes/origin/main
+  remotes/origin/master
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git pull origin master
+From https://gitlab.com/sriram-group/gitdemo
+ * branch            master     -> FETCH_HEAD
+Already up to date.
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git push origin master
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (4/4), 515 bytes | 257.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+remote:
+remote: View merge request for master:
+remote:   https://gitlab.com/sriram-group/gitdemo/-/merge_requests/1
+remote:
+To https://gitlab.com/sriram-group/gitdemo.git
+   435d36b..40198c2  master -> master
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$

@@ -1,0 +1,148 @@
+
+Asus@Rohit MINGW64 ~
+$ cd N:\GitDemo
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git branch GitNewBranch
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git branch -a
+  GitNewBranch
+* master
+  remotes/origin/master
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git checkout GitNewBranch
+Switched to branch 'GitNewBranch'
+
+Asus@Rohit MINGW64 /n/GitDemo (GitNewBranch)
+$ echo "This File was orginally from a different branch" > BranchDemo.txt
+
+Asus@Rohit MINGW64 /n/GitDemo (GitNewBranch)
+$ git add BranchDemo.txt
+warning: in the working copy of 'BranchDemo.txt', LF will be replaced by CRLF the next time Git touches it
+
+Asus@Rohit MINGW64 /n/GitDemo (GitNewBranch)
+$ git commit -m "Added BranchDemo.txt in GitNewBranch"
+[GitNewBranch 6875845] Added BranchDemo.txt in GitNewBranch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 BranchDemo.txt
+
+Asus@Rohit MINGW64 /n/GitDemo (GitNewBranch)
+$ git status
+On branch GitNewBranch
+nothing to commit, working tree clean
+
+Asus@Rohit MINGW64 /n/GitDemo (GitNewBranch)
+$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git diff master GitNewBranch
+diff --git a/BranchDemo.txt b/BranchDemo.txt
+new file mode 100644
+index 0000000..d828e38
+--- /dev/null
++++ b/BranchDemo.txt
+@@ -0,0 +1 @@
++This File was orginally from a different branch
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git config --global diff.tool p4merge
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git config --global difftool.prompt false
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git config --global merge.tool p4merge
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git config --global difftool.p4merge.cmd '"C:/Program Files/Perforce/p4merge.exe" "$LOCAL" "$REMOTE"'
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git config --global mergetool.p4merge.cmd '"C:/Program Files/Perforce/p4merge.exe" "$BASE" "$LOCAL" "$REMOTE" "$MERGED"'
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git config --global diff.tool p4merge
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git diff master GitNewBranch
+diff --git a/BranchDemo.txt b/BranchDemo.txt
+new file mode 100644
+index 0000000..d828e38
+--- /dev/null
++++ b/BranchDemo.txt
+@@ -0,0 +1 @@
++This File was orginally from a different branch
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git config --global difftool.skipidentical true
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git checkout -b GitNewBranch
+fatal: a branch named 'GitNewBranch' already exists
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git difftool master GitNewBranch
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git diff master GitNewBranch
+diff --git a/BranchDemo.txt b/BranchDemo.txt
+new file mode 100644
+index 0000000..d828e38
+--- /dev/null
++++ b/BranchDemo.txt
+@@ -0,0 +1 @@
++This File was orginally from a different branch
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git config --global diff.tool p4merge
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git config --global difftool.prompt false
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git config --global difftool.p4merge.cmd "\"C:/Program Files/Perforce/p4merge.exe\" \"$LOCAL\" \"$REMOTE\""
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git config --global merge.tool p4merge
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git config --global mergetool.p4merge.cmd "\"C:/Program Files/Perforce/p4merge.exe\" \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\""
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git difftool master GitNewBranch
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git merge GitNewBranch
+Updating f3c0147..6875845
+Fast-forward
+ BranchDemo.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 BranchDemo.txt
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git log --oneline --graph --decorate
+* 6875845 (HEAD -> master, GitNewBranch) Added BranchDemo.txt in GitNewBranch
+* f3c0147 (origin/master) Added .gitignore to ignore .log files and folders
+* c0adda2 welcome to version control text added
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git branch -d GitNewBranch
+Deleted branch GitNewBranch (was 6875845).
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        README.md
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ 

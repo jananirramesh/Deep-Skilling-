@@ -1,0 +1,142 @@
+
+Asus@Rohit MINGW64 ~
+$ cd N:\GitDemo
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        README.md
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git checkout -b GitWork
+Switched to a new branch 'GitWork'
+
+Asus@Rohit MINGW64 /n/GitDemo (GitWork)
+$ echo "<message>Hello from GitWork</message> hello.xml
+> clear
+> "
+<message>Hello from GitWork</message> hello.xml
+clear
+
+
+Asus@Rohit MINGW64 /n/GitDemo (GitWork)
+$ echo "<message>Hello from GitWork</message>" > hello.xml
+
+Asus@Rohit MINGW64 /n/GitDemo (GitWork)
+$ git status
+On branch GitWork
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        README.md
+        hello.xml
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Asus@Rohit MINGW64 /n/GitDemo (GitWork)
+$ git add hello.xml
+warning: in the working copy of 'hello.xml', LF will be replaced by CRLF the next time Git touches it
+
+Asus@Rohit MINGW64 /n/GitDemo (GitWork)
+$ git commit -m "Added hello.xml in gitwork branch"
+[GitWork f5b2cb5] Added hello.xml in gitwork branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hello.xml
+
+Asus@Rohit MINGW64 /n/GitDemo (GitWork)
+$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ echo "<message>From master Branch</message>" > hello.xml
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git add hello.xml
+warning: in the working copy of 'hello.xml', LF will be replaced by CRLF the next time Git touches it
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git commit -m "Added hello.xml in master branch"
+[master a527da1] Added hello.xml in master branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hello.xml
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git log --oneline --graph --decorate --all
+* a527da1 (HEAD -> master) Added hello.xml in master branch
+| * f5b2cb5 (GitWork) Added hello.xml in gitwork branch
+|/
+* 6875845 (origin/master) Added BranchDemo.txt in GitNewBranch
+* f3c0147 Added .gitignore to ignore .log files and folders
+* c0adda2 welcome to version control text added
+* 7f87ea1 (origin/main) Initial commit
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git diff GitWork
+diff --git a/hello.xml b/hello.xml
+index 84f3217..7faeb1a 100644
+--- a/hello.xml
++++ b/hello.xml
+@@ -1 +1 @@
+-<message>Hello from GitWork</message>
++<message>From master Branch</message>
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git difftool GitWork
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git config --global merge.tool p4merge
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git config --global mergetool.p4merge.cmd '"C:/Program Files/Perforce/p4merge.exe" "$BASE" "$LOCAL" "$REMOTE" "$MERGED"'
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git merge GitWork
+Auto-merging hello.xml
+CONFLICT (add/add): Merge conflict in hello.xml
+Automatic merge failed; fix conflicts and then commit the result.
+
+Asus@Rohit MINGW64 /n/GitDemo (master|MERGING)
+$ git mergetool
+Merging:
+hello.xml
+
+Normal merge conflict for 'hello.xml':
+  {local}: created file
+  {remote}: created file
+
+Asus@Rohit MINGW64 /n/GitDemo (master|MERGING)
+$ git add hello.xml
+
+Asus@Rohit MINGW64 /n/GitDemo (master|MERGING)
+$ git commit -m "resolved merge conflict"
+[master 435d36b] resolved merge conflict
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git branch
+  GitWork
+* master
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git branch -d GitWork
+Deleted branch GitWork (was f5b2cb5).
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$ git log --oneline --graph --decorate
+*   435d36b (HEAD -> master) resolved merge conflict
+|\
+| * f5b2cb5 Added hello.xml in gitwork branch
+* | a527da1 Added hello.xml in master branch
+|/
+* 6875845 (origin/master) Added BranchDemo.txt in GitNewBranch
+* f3c0147 Added .gitignore to ignore .log files and folders
+* c0adda2 welcome to version control text added
+
+Asus@Rohit MINGW64 /n/GitDemo (master)
+$
